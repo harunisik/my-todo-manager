@@ -18,6 +18,7 @@ COPY . /usr/src/app
 #RUN npm install
 RUN npm install --global http-server
 RUN npm install json-server
+RUN npm ci --only=production
 
 EXPOSE 8080
 
