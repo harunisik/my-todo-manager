@@ -1,0 +1,20 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+version: '3.7'
+
+services:
+  backend:
+    container_name: todo-manager-service
+    build:
+      context: backend # Use an image built from the specified dockerfile in the `backend` directory.
+      dockerfile: Dockerfile
+    ports:
+      - '8778:8778' # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: always
+
+  frontend:
+    container_name: todo-manager-ui
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
